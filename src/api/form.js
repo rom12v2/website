@@ -8,6 +8,7 @@ Airtable.configure({
 
 // Your Table ID from Airtable
 const db = Airtable.base(process.env.AIRTABLE_DB);
+console.log("base", process.env.AIRTABLE_DB);
 
 const handler = (req, res) => {
   try {
@@ -15,8 +16,7 @@ const handler = (req, res) => {
       return res.status(404).json({ message: "This endpoint requires a POST" });
     }
 
-    const data = req.body;
-
+    const data = JSON.parse(req.body);
     if (!data) {
       return res.status(500).json({ error: "There isn't any data." });
     }
@@ -25,9 +25,11 @@ const handler = (req, res) => {
       [
         {
           fields: {
-            Name: data.name,
+            // Name: data.name,
             Email: data.email,
-            Message: data.message,
+            "First name": data.firstName,
+            "Last name": data.lastName,
+            // Message: data.message,
           },
         },
       ],
