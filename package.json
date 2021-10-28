@@ -12,6 +12,7 @@
     "clean": "gatsby clean"
   },
   "dependencies": {
+    "airtable": "0.11.1",
     "bootstrap": "5.1.3",
     "react-bootstrap": "2.0.0",
     "gatsby": "4.0.2",
